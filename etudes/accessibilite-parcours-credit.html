@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Étude de cas : rendre un parcours de crédit accessible · Yanis Allouani</title>
+<meta name="description" content="Étude de cas : intégrer l'accessibilité numérique (RGAA) dans le cycle Agile d'une squad bancaire. Priorisation par impact, modèle de user story, −26,4 % d'erreurs détectées.">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Yanis Allouani</a>
+    <nav aria-label="Navigation principale">
+      <ul class="nav-list">
+        <li><a href="../index.html#etudes">← Toutes les études de cas</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="contenu">
+<article>
+
+  <header class="narrow case-hero">
+    <p class="eyebrow">Étude de cas 01 · Banque · 2025 – 2026</p>
+    <h1 class="display">Rendre un parcours de crédit accessible, et faire en sorte qu'il le reste</h1>
+    <p class="lead">Dans une filiale de crédit à la consommation d'un grand groupe bancaire, l'accessibilité numérique n'existait dans aucune étape du cycle de développement. Plutôt que de corriger les erreurs une par une, j'ai fait évoluer le processus qui les produisait.</p>
+  </header>
+
+  <div class="narrow">
+    <dl class="facts" aria-label="Fiche projet">
+      <div><dt>Mon rôle</dt><dd>Référent accessibilité et développeur, en appui du PO et du Product Analyst</dd></div>
+      <div><dt>Équipe</dt><dd>PO, Scrum Master, 3 développeurs, recette intégrée</dd></div>
+      <div><dt>Cadre</dt><dd>SAFe, sprints de 3 à 5 semaines</dd></div>
+      <div><dt>Outils</dt><dd>Jira, Confluence, Figma, axe DevTools, WAVE</dd></div>
+    </dl>
+  </div>
+
+  <section class="narrow chapter" aria-labelledby="s1">
+    <p class="section-num" aria-hidden="true">01</p>
+    <h2 id="s1" class="h2">Le contexte</h2>
+    <p>Un parcours en ligne permet aux clients de souscrire seuls un crédit renouvelable, en cinq étapes et sans conseiller. Comme l'entreprise dépasse 250 M€ de chiffre d'affaires, ce parcours est soumis au RGAA 4.1. Un audit externe avait relevé de nombreuses non-conformités, traduites en <strong>21 tickets</strong> correctifs.</p>
+  </section>
+
+  <section class="narrow chapter" aria-labelledby="s2">
+    <p class="section-num" aria-hidden="true">02</p>
+    <h2 id="s2" class="h2">Le problème</h2>
+    <p>En cartographiant le workflow de l'équipe, j'ai constaté que l'accessibilité n'était pas mal traitée : elle n'apparaissait nulle part. Aucune des cinq phases du sprint ne jouait le rôle de filet de sécurité.</p>
+    <ul>
+      <li><strong>Backlog :</strong> aucune exigence d'accessibilité dans les user stories ni dans les critères d'acceptation.</li>
+      <li><strong>Développement :</strong> aucun guide sur la sémantique HTML, ARIA ou le focus.</li>
+      <li><strong>Revue de code et recette :</strong> aucun point de contrôle, aucun scénario de test au clavier ou au lecteur d'écran.</li>
+    </ul>
+    <p class="callout">Conséquence concrète : un client naviguant au clavier ne pouvait pas atteindre le bouton « Quitter », et donc abandonner sa demande sans souris.</p>
+  </section>
+
+  <section class="narrow chapter" aria-labelledby="s3">
+    <p class="section-num" aria-hidden="true">03</p>
+    <h2 id="s3" class="h2">Ma démarche</h2>
+    <ol class="steps">
+      <li>Analyser le workflow existant</li>
+      <li>Prioriser par impact utilisateur</li>
+      <li>Concevoir un référentiel adapté</li>
+      <li>L'intégrer au sprint</li>
+      <li>Mesurer et itérer</li>
+    </ol>
+    <h3 class="h3">Prioriser : l'impact avant la facilité</h3>
+    <p>Avec le Product Analyst, nous avons choisi de traiter d'abord ce qui bloquait réellement l'usage, pas ce qui était simple à corriger. Les <strong>2 tickets bloquants</strong> pour la navigation au clavier sont passés en priorité absolue. J'ai ensuite regroupé les 19 suivants <strong>par type de problème</strong> plutôt que par page, pour corriger chaque défaut à sa racine, dans le composant réutilisé, au lieu de le corriger page après page.</p>
+    <h3 class="h3">Un référentiel pour deux publics</h3>
+    <p>Les 106 critères du RGAA officiel décourageaient l'équipe. J'ai donc conçu un référentiel interne sur Confluence, construit à partir des erreurs réellement observées. Chaque fiche explique l'enjeu pour l'utilisateur et donne une <strong>checklist oui/non pour le PO et la recette</strong>, puis le code conforme pour les développeurs. Une réunion hebdomadaire avec le designer UX/UI permettait de vérifier l'accessibilité des maquettes avant même le développement.</p>
+  </section>
+
+  <section class="band" aria-labelledby="s4">
+    <div class="narrow band-chapter">
+      <p class="section-num" aria-hidden="true">04</p>
+      <h2 id="s4" class="h2">Un livrable : le modèle de user story</h2>
+      <p>Le levier le plus durable : un modèle de user story que le PO duplique pour chaque nouveau besoin front-end. Les exigences d'accessibilité y figurent dès la création du ticket, au même niveau que les critères fonctionnels, avec une étiquette Jira dédiée pour les repérer dans le backlog.</p>
+      <figure class="story">
+        <div class="story-card">
+          <div class="story-head">
+            <span class="story-type">USER STORY</span>
+            <span class="story-label">accessibilité</span>
+          </div>
+          <p class="story-text"><strong>En tant que</strong> client naviguant au clavier, <strong>je veux</strong> pouvoir quitter ma demande à n'importe quelle étape, <strong>afin de</strong> ne jamais rester bloqué dans le parcours.</p>
+          <div class="story-block">
+            <h3>Critères d'acceptation</h3>
+            <p class="gherkin">Étant donné que je suis sur une étape du parcours
+Quand j'appuie sur Tab
+Alors le bouton « Quitter » reçoit un focus visible
+Et un lecteur d'écran annonce « Quitter, bouton »
+Quand j'appuie sur Entrée
+Alors la fenêtre de confirmation s'ouvre</p>
+          </div>
+          <div class="story-block">
+            <h3>Exigences obligatoires : conformité RGAA</h3>
+            <ul>
+              <li>Structure et sémantique : un élément qui déclenche une action est un vrai bouton</li>
+              <li>Navigation et clavier : atteignable et activable sans souris</li>
+              <li>Images et médias : icône décorative ignorée par les lecteurs d'écran</li>
+            </ul>
+          </div>
+        </div>
+        <figcaption class="caption">Exemple reconstitué à partir de la démarche ; les documents internes restent confidentiels.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="narrow chapter" style="padding-top: 64px" aria-labelledby="s5">
+    <p class="section-num" aria-hidden="true">05</p>
+    <h2 id="s5" class="h2">Les résultats</h2>
+    <ul class="stats">
+      <li class="stat"><span class="stat-value">11 / 21</span><span class="stat-label">corrections déployées en production, les plus bloquantes en premier</span></li>
+      <li class="stat"><span class="stat-value is-good">−26,4 %</span><span class="stat-label">d'erreurs détectées sur le parcours (72 → 53)</span></li>
+      <li class="stat"><span class="stat-value">100 %</span><span class="stat-label">des nouveaux tickets de développement intègrent les exigences RGAA</span></li>
+    </ul>
+
+    <div class="highlight on-dark">
+      <p class="big">Une seule correction, dix-huit occurrences résolues.</p>
+      <p>Le bouton « Quitter » était un composant répété sur les cinq étapes. Le corriger à la racine a fait passer la règle « liens sans nom » de 24 à 6 erreurs, soit −75 %.</p>
+    </div>
+
+    <figure class="chart">
+      <figcaption>Erreurs détectées par axe DevTools, avant et après corrections</figcaption>
+      <ul class="legend" aria-hidden="true">
+        <li><span class="swatch before"></span>Avant</li>
+        <li><span class="swatch after"></span>Après</li>
+      </ul>
+      <ul class="rows">
+        <li><span class="rule">link-name</span><span class="bars" aria-hidden="true"><span class="bar before" style="width:85.7%"></span><span class="bar after" style="width:21.4%"></span></span><span class="delta is-good"><span class="visually-hidden">avant </span>24 → 6<span class="visually-hidden"> après</span></span></li>
+        <li><span class="rule">label</span><span class="bars" aria-hidden="true"><span class="bar before" style="width:100%"></span><span class="bar after" style="width:96.4%"></span></span><span class="delta"><span class="visually-hidden">avant </span>28 → 27<span class="visually-hidden"> après</span></span></li>
+        <li><span class="rule">aria-progressbar</span><span class="bars" aria-hidden="true"><span class="bar before" style="width:28.6%"></span><span class="bar after" style="width:28.6%"></span></span><span class="delta"><span class="visually-hidden">avant </span>8 → 8<span class="visually-hidden"> après</span></span></li>
+        <li><span class="rule">color-contrast</span><span class="bars" aria-hidden="true"><span class="bar before" style="width:28.6%"></span><span class="bar after" style="width:28.6%"></span></span><span class="delta"><span class="visually-hidden">avant </span>8 → 8<span class="visually-hidden"> après</span></span></li>
+        <li><span class="rule">select-name</span><span class="bars" aria-hidden="true"><span class="bar before" style="width:14.3%"></span><span class="bar after" style="width:14.3%"></span></span><span class="delta"><span class="visually-hidden">avant </span>4 → 4<span class="visually-hidden"> après</span></span></li>
+      </ul>
+      <p class="note">Les trois règles inchangées concernent des composants hérités, hors du périmètre des 21 tickets. Et les outils automatiques ne détectent qu'environ 30 % des non-conformités : une bonne partie des corrections (sémantique, ordre de tabulation) n'apparaît pas dans ces chiffres.</p>
+    </figure>
+
+    <h3 class="h3">Au-delà des chiffres : la démarche se diffuse</h3>
+    <ul>
+      <li>Présentation de la démarche à la tribu (une douzaine de personnes de plusieurs squads), <strong>à la demande de la direction</strong>.</li>
+      <li><strong>2 autres squads</strong> sont venues demander à reprendre le modèle de user story et le référentiel.</li>
+      <li><strong>1 développeuse formée</strong> pour reprendre la suite des corrections après mon départ.</li>
+      <li>Contribution à la rédaction de la première déclaration d'accessibilité publiée par l'entreprise.</li>
+    </ul>
+  </section>
+
+  <section class="narrow chapter" style="padding-bottom: 80px" aria-labelledby="s6">
+    <p class="section-num" aria-hidden="true">06</p>
+    <h2 id="s6" class="h2">Ce que j'ai appris</h2>
+    <div class="lessons">
+      <div class="lesson">
+        <h3>Montrer convainc plus qu'argumenter</h3>
+        <p>Une démonstration du parcours au clavier, bloqué sur « Quitter », a fait plus que n'importe quel rappel de la loi.</p>
+      </div>
+      <div class="lesson">
+        <h3>Accompagner plutôt que présenter</h3>
+        <p>Les habitudes ont changé sur des tickets concrets, avec un accompagnement au bon moment, pas pendant une présentation.</p>
+      </div>
+      <div class="lesson">
+        <h3>Ce que je ferais autrement</h3>
+        <p>Obtenir dès le départ un mandat officiel. Quand un porteur de projet est parti, des semaines de travail ont été perdues : une démarche doit reposer sur l'organisation, pas sur une personne.</p>
+      </div>
+    </div>
+  </section>
+
+</article>
+</main>
+
+<footer class="site-footer on-dark">
+  <div class="wrap">
+    <a href="../index.html#etudes">← Retour aux études de cas</a>
+    <p>Conçu pour respecter le RGAA 4.1</p>
+  </div>
+</footer>
+</body>
+</html>
